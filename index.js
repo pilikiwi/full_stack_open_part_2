@@ -1,19 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Course from './components/Course'
 
-const Course = ({ course, exercises }) => {
-  
-  return (
-    <div>
-      <h2>{course.name}</h2>
-      {course.parts.map(part=><p key={part.id}>{part.name} {part.exercises}</p>)}
-      <p>total of &nbsp;    
-      {course.parts.map(part=>part.exercises).reduce((sum , exercise) => sum + exercise, 0)}
-      &nbsp; exercises</p>
-    </div>
-    
-  )
-}
 
 const App = () => {
   const courses = [
