@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Course = ({ course }) => {
+const Course = ({ course, exercises }) => {
+  
   return (
     <div>
       <h1>{course.name}</h1>
       {course.parts.map(part=><p key={part.id}>{part.name} {part.exercises}</p>)}
+      <p>total of &nbsp;    
+      {course.parts.map(part=>part.exercises).reduce((sum , exercise) => sum + exercise, 0)}
+      &nbsp; exercises</p>
     </div>
+    
   )
 }
 
@@ -30,9 +35,12 @@ const App = () => {
         exercises: 14,
         id: 3
       },
+
     ]
   }
+
   return <Course course={course} />
+
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
